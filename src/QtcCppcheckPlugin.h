@@ -31,7 +31,7 @@ namespace QtcCppcheck {
      */
     class QtcCppcheckPlugin : public ExtensionSystem::IPlugin {
       Q_OBJECT
-      Q_PLUGIN_METADATA (IID "org.qt-project.Qt.QtCreatorPlugin" FILE "QtcCppcheck.json")
+      Q_PLUGIN_METADATA (IID "org.qt-project.Qt.QtCreatorPlugin" FILE "QtcCpplint.json")
 
       public:
         QtcCppcheckPlugin ();

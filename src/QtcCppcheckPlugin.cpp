@@ -113,7 +113,7 @@ bool QtcCppcheckPlugin::initialize (const QStringList &arguments, QString *error
 }
 
 void QtcCppcheckPlugin::initMenus () {
-  QAction *checkNodeAction = new QAction (tr ("Scan with cppcheck"), this);
+  QAction *checkNodeAction = new QAction (tr ("Scan with cpplint"), this);
   Command *checkNodeCmd = ActionManager::registerAction (
     checkNodeAction, Constants::ACTION_CHECK_NODE_ID,
     Context (Core::Constants::C_EDIT_MODE));
@@ -141,7 +141,7 @@ void QtcCppcheckPlugin::initMenus () {
 
 
   ActionContainer *menu = ActionManager::createMenu (Constants::MENU_ID);
-  menu->menu ()->setTitle (tr ("C&ppcheck"));
+  menu->menu ()->setTitle (tr ("cpp&lint"));
   menu->addAction (checkProjectCmd);
   menu->addAction (checkDocumentCmd);
   ActionManager::actionContainer (Core::Constants::M_TOOLS)->addMenu (menu);
@@ -180,7 +180,7 @@ void QtcCppcheckPlugin::initLanguage () {
   if (!language.isEmpty ()) {
     QStringList paths;
     paths << ICore::resourcePath () << ICore::userResourcePath ();
-    const QString &trFile = QLatin1String ("QtcCppcheck_") + language;
+    const QString &trFile = QLatin1String ("QtcCpplint_") + language;
     QTranslator *translator = new QTranslator (this);
     foreach (const QString &path, paths) {
       if (translator->load (trFile, path + QLatin1String ("/translations"))) {

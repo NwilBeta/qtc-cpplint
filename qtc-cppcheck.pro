@@ -2,7 +2,7 @@ VERSION_SUFFIX = ""
 
 include(paths.pri)
 
-# QtcCppcheck files
+# QtcCpplint files
 
 SOURCES += \
     src/OptionsWidget.cpp \
@@ -33,13 +33,13 @@ OTHER_FILES += \
     util/README.md \
     uncrustify.cfg
 
-PROVIDER = Gres
+PROVIDER = Nwil
 
 ###### If the plugin can be depended upon by other plugins, this code needs to be outsourced to
 ###### <dirname>_dependencies.pri, where <dirname> is the name of the directory containing the
 ###### plugin's sources.
 
-QTC_PLUGIN_NAME = QtcCppcheck
+QTC_PLUGIN_NAME = QtcCpplint
 QTC_LIB_DEPENDS += \
     utils
 

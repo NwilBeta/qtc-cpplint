@@ -1,0 +1,12 @@
+{
+    \"Name\" : \"QtcCpplint\",
+    \"Version\" : \"$$QTCREATOR_VERSION$$VERSION_SUFFIX\",
+    \"CompatVersion\" : \"$$QTCREATOR_COMPAT_VERSION\",
+    \"Category\": \"Code Analyzer\",
+    \"Vendor\" : \"Nwil\",
+    \"Copyright\" : \"(C) Nwil\",
+    \"License\" : \"MIT license\",
+    \"Description\" : \"Integrates cpplint tool into Qt Creator\",
+    \"Url\" : \"https://github.com/cpplint/cpplint\",
+    $$dependencyList
+}

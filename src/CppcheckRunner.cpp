@@ -163,7 +163,7 @@ void CppcheckRunner::checkQueuedFiles () {
         includeListFile_.close ();
       }
       else{
-        Core::MessageManager::write (tr ("Failed to write cppcheck's argument files"),
+        Core::MessageManager::write (tr ("Failed to write cpplint's argument files"),
                                      Core::MessageManager::Silent);
         return;
       }
@@ -177,7 +177,7 @@ void CppcheckRunner::checkQueuedFiles () {
   }
   emit startedChecking (currentlyCheckingFiles_);
   if (showOutput_) {
-    Core::MessageManager::write (QString ("Starting CppChecker with:%1, %2")
+    Core::MessageManager::write (QString ("Starting cpplint with:%1, %2")
                                  .arg (binary,arguments.join (" ")), Core::MessageManager::WithFocus);
   }
   process_.start (binary, arguments);
@@ -237,14 +237,14 @@ void CppcheckRunner::readError () {
 
 void CppcheckRunner::started () {
   if (showOutput_) {
-    Core::MessageManager::write (tr ("Cppcheck started"), Core::MessageManager::Silent);
+    Core::MessageManager::write (tr ("cpplint started"), Core::MessageManager::Silent);
   }
 
   using namespace Core;
   delete futureInterface_;
   futureInterface_ = new QFutureInterface<void>;
   FutureProgress *progress = ProgressManager::addTask (futureInterface_->future (),
-                                                       tr ("Cppcheck"), Constants::TASK_CHECKING);
+                                                       tr ("cpplint"), Constants::TASK_CHECKING);
   connect (progress, SIGNAL (canceled ()), SLOT (stopChecking ()));
   futureInterface_->setProgressRange (0, 100); // %
   futureInterface_->reportStarted ();
@@ -253,7 +253,7 @@ void CppcheckRunner::started () {
 void CppcheckRunner::error (QProcess::ProcessError error) {
   Q_UNUSED (error);
   if (showOutput_) {
-    Core::MessageManager::write (tr ("Cppcheck error occured"), Core::MessageManager::Silent);
+    Core::MessageManager::write (tr ("cpplint error occured"), Core::MessageManager::Silent);
   }
   if (error == QProcess::FailedToStart) {
     finished (-1, QProcess::CrashExit);
@@ -268,6 +268,6 @@ void CppcheckRunner::finished (int exitCode, QProcess::ExitStatus exitStatus) {
   }
   process_.close ();
   if (showOutput_) {
-    Core::MessageManager::write (tr ("Cppcheck finished"), Core::MessageManager::Silent);
+    Core::MessageManager::write (tr ("cpplint finished"), Core::MessageManager::Silent);
   }
 }
